@@ -1,5 +1,7 @@
 comrun
 ======
+1.......
+
 // Force the use of the www subdomain // stopping curl url request
 // Install info.:
 // Copy and paste these lines into your default index.php or
@@ -50,3 +52,28 @@ if ($host != 'www.jonasjohn.de'){
 // of with your website...
  
 // BTW: You need to replace jonasjohn.de trough your own domain :-D
+
+2...........
+
+// curl example
+
+apache_request_headers() - to read http header
+
+curl request--
+
+$ch = curl_init();
+	$m = "monty";
+	$Url = "http://localhost/postngain/posts/abc/".$m;
+	curl_setopt($ch, CURLOPT_URL, $Url);
+    curl_setopt($ch, CURLOPT_USERAGENT, "MozillaXYZ/1.0");
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'secret key: 92111567',
+    'authorization key: 1434432342342312'
+    ));
+	
+	  $output = curl_exec($ch);
+	  curl_close($ch);
+      print_r($output);
+
+
+///////////
