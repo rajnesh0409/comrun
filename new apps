@@ -1,2 +1,12 @@
+// Single sign On (SSO)
+
+din ke anusaar bawe token banne hai - sun -su, mon - mo
+har din ka token din kane mehine par nirbhar karega bawe.
+curl use kari ne request karni kane ae token pass karna.
+token kane values se headera ch pass karni.
+check karana request kuta te aayi kari and token also.
+
+//
+
 - jquery odo meter
 - css sprite sheets
