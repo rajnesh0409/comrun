@@ -78,7 +78,7 @@ $ch = curl_init();
 
 ///////////
 
-3...... promt user weather that data may loss
+3...... promt user about data loss
 
  window.onbeforeunload = confirmExit;
   function confirmExit()
