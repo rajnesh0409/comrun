@@ -1,0 +1,32 @@
+
+go to etc/hosts
+
+127.0.0.1 localhost
+127.0.1.1 mysite.com
+127.0.1.1 mail.mysite.com
+
+then go to /etc/apache2/sites-available/000-deafault-anyname
+
+<VirtualHost *:80>
+    # This first-listed virtual host is also the default for *:80
+    ServerName www.example.com
+    ServerAlias example.com 
+    DocumentRoot /www/domaindir
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName mysite.com
+    DocumentRoot /www/rrotnamedir
+</VirtualHost>
+
+commands - 
+
+sudo nano /etc/hosts
+sudo nano /etc/apache2/sites-available/000-default
+
+after editing  
+
+sudo a2ensite 000-default-anyname
+sudo service apache2 restart
+
+ 
