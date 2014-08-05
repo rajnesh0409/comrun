@@ -24,6 +24,7 @@ mod_ssl(apache)
 handled ssl handshake process
 http://en.kryptotel.net/ssl.html
 http://commons.wikimedia.org/wiki/File:Digital_Signature_diagram.svg
+https://www.fortify.net/sslcheck.html
 
 // lincenses
 gpl
