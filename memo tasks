@@ -12,15 +12,18 @@ check karana request kuta te aayi kari and token also.
 - http://en.wikipedia.org/wiki/List_of_assigned_/8_IPv4_address_blocks
 
 //
-
 connection to a website is secure or not -
 Gray warning triangle
 Orange warning triangle
 Gray padlock
 Green padloc - specify identitiy owner name
-
-mod_ssl
 https://support.mozilla.org/en-US/kb/how-do-i-tell-if-my-connection-is-secure?as=u&utm_source=inproduct
+
+//ssl
+mod_ssl(apache)
+handled ssl handshake process
+http://en.kryptotel.net/ssl.html
+http://commons.wikimedia.org/wiki/File:Digital_Signature_diagram.svg
 
 // lincenses
 gpl
