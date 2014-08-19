@@ -1,0 +1,14 @@
+// js/css import
+
+write all js name ans css name in xml file
+read that xml file through any php function 
+all php functions should be written in one sepreate file
+
+after reading xml file , make uri which point to some php file with some parameter
+that php file read all the file name mentioned and compressed data and write them in to one file.
+
+for js- one js file and for css one css file
+gzdeflate - to compress string
+
+// use curl to read remote url
+
