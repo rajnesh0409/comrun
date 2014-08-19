@@ -12,3 +12,16 @@ gzdeflate - to compress string
 
 // use curl to read remote url
 
+// javacsript caring
+
+var cars = ["Saab", "Volvo", "BMW"] - array
+var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"} - object
+var employees = [
+    {"firstName":"John", "lastName":"Doe"},
+    {"firstName":"Anna", "lastName":"Smith"},
+    {"firstName":"Peter", "lastName": "Jones"}
+] - json
+
+retrieveby - employees[0].firstName
+
+//
