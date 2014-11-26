@@ -24,4 +24,26 @@ var employees = [
 
 retrieveby - employees[0].firstName
 
-//
+// Documentation of web design (Important)
+
+Colors information - 
+primary color, secondry color.
+
+Font information- 
+families
+sizes
+
+Scripts information -
+name
+version no.
+purpose
+
+External libraries information -
+name 
+version no.
+purpose
+eg - Bootstrap framwork, animate,wanky pages or hover css for transistions.
+
+
+
+
