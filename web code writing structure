@@ -44,6 +44,10 @@ version no.
 purpose
 eg - Bootstrap framwork, animate,wanky pages or hover css for transistions.
 
+// pick array values |  new data binding | serilization
+var cat_values = $('.cat_check:checked').map(function() {
+    return this.value;
+}).get(cat_values);
 
 
 
