@@ -51,7 +51,7 @@ var cat_values = $('.cat_check:checked').map(function() {
 
 //on scroll down event
 $(window).scroll(function() {
-   if($(window).scrollTop() + $(window).height() == $(document).height()- 100) {
+   if($(window).scrollTop() + $(window).height() == $(document).height()> 100) {
        alert("bottom!");
    }
 });
