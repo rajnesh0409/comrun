@@ -1,0 +1,27 @@
+ CAKEPHP
+ 
+ - request/response components
+ - hash - core lib
+ - virtual field - models
+ - bind model - in controller
+ - inflectors
+ 
+JQUERY/PHP/CSS
+ 
+ array{
+ compact - php
+ map - jq/php
+ get() - jq
+ data bind - jq
+ 
+ }
+ 
+ Extra -
+ 
+ Angular js
+ jbox - notices, info box.
+ grid -view
+ 
+ 
+ 
+ 
