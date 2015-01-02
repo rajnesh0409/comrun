@@ -1,10 +1,12 @@
  CAKEPHP
  
- - request/response components
+ - request/response components/ request handler
  - hash - core lib
  - virtual field - models
  - bind model - in controller
  - inflectors
+ - js helper, pagination options attr.
+ - creating condition
  
 JQUERY/PHP/CSS
  
@@ -20,6 +22,7 @@ JQUERY/PHP/CSS
  
  Angular js
  jbox - notices, info box.
+ popups,
  grid -view
  
  
