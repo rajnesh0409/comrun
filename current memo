@@ -21,8 +21,48 @@ JQUERY/PHP/CSS
  Extra -
  
  Angular js
+ 
  jbox - notices, info box.
+ eg-
+ new jBox('Notice', {
+					attach: $('p_tooltip'),
+					content: 'Dealer login requied !!',
+					animation: {open: 'tada', close: 'flip'},
+					delayClose: 50,
+					position: {
+							x: 'right',
+							y: 'bottom'
+							},
+					offset: {
+							x: -15,
+							y: -15
+							}
+							});
+	*************************
+							$('.d_tooltip').jBox('Tooltip', {
+    delayOpen: 500,
+    delayClose: 50,
+	   getContent: 'data-jbox-content'
+    });
+**************************************
  popups,
+ eg - 
+ $('#fadeandscale').popup({
+	    onclose: function() {
+            $('#prodetail').html('');
+        },
+		onopen: function() {
+			$('#prodetail').html($('.prodresult').html());
+			$('#first_info').append($img);
+			$("#friend_email").val('');
+        },
+        pagecontainer: '.container',
+        transition: 'all 0.3s'
+    });
+    
+   **********************************
+ 
+ 
  grid -view
  
  
