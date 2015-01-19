@@ -39,7 +39,8 @@ JQUERY/PHP/CSS
 							}
 							});
 	*************************
-							$('.d_tooltip').jBox('Tooltip', {
+	
+	$('.d_tooltip').jBox('Tooltip', {
     delayOpen: 500,
     delayClose: 50,
 	   getContent: 'data-jbox-content'
@@ -65,6 +66,8 @@ JQUERY/PHP/CSS
  
  grid -view
  
+- social networking links
+http://blog.hubspot.com/blog/tabid/6307/bid/29544/The-Ultimate-Cheat-Sheet-for-Creating-Social-Media-Buttons.aspx
  
  
  
