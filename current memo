@@ -69,5 +69,16 @@ JQUERY/PHP/CSS
 - social networking links
 http://blog.hubspot.com/blog/tabid/6307/bid/29544/The-Ultimate-Cheat-Sheet-for-Creating-Social-Media-Buttons.aspx
  
+ ***************************************
+ group by in cakephp give count of item in associated tabel
+ 
+ $options = array('joins' => array(
+array(
+	'table' => 'purple_ordermanagements',
+	'alias' => 'Ordermanagement',
+	'type' => 'inner',
+	'conditions'=> array('Ordermanagement.prodcut_code = Jewel.product_code')
+	)),
+'conditions'=>array('Jewel.status'=>'enable','Jewel.store_id'=>store_id),'fields'=>array('Jewel.title','Jewel.product_code','Jewel.image_name','Jewel.description','Jewel.cat_id','COUNT(prodcut_code) AS jewel_order_count','Jewel.cat_id'),'group'=>array('Ordermanagement.prodcut_code'),'order'=>'jewel_order_count DESC','limit'=>8);
  
  
