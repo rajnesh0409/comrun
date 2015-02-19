@@ -1,11 +1,28 @@
+ 
+ Latest working
+ 
+ - apache .htacces commands testing + notes
+ - angular notes
+ - python new notes
+ - test and notes on regular exps (html5- pattern and js -test)
+ 
+ other stuff
+ 
+ - buy lappi battery
+ - install virtual box and install linux for further socket programming in pyhton
+ 
+ Proceed in future
+ 
+ - big data hadoop
+ 
  CAKEPHP
  
  - request/response components/ request handler
- - hash - core lib
+ - hash(extract,format,merge,filter etc.) - core lib
  - virtual field - models
- - bind model - in controller
+ - bind/unbind model - in controller
  - inflectors
- - js helper, pagination options attr.
+ - js helper, pagination options attribue, JS ajax.
  - creating condition
  
 JQUERY/PHP/CSS
