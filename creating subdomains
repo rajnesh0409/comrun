@@ -1,4 +1,6 @@
 
+LINUX
+
 go to etc/hosts
 
 127.0.0.1 localhost
@@ -28,5 +30,45 @@ after editing
 
 sudo a2ensite 000-default-anyname
 sudo service apache2 restart
+
+WINDOWS -------------------------------------------------------
+
+Go to C:\WINDOWS\system32\drivers\etc:
+
+run notepad++ as administrator then open hosts file
+Edit  in it
+
+127.0.0.1       www.tbj.com
+127.0.0.1       www.panache.com
+127.0.0.1       www.tk.com
+ 
+Then go to C:\xampp\apache\conf\extra
+open httpd-vhosts.conf
+
+Edit  in it
+
+<VirtualHost *:80>
+    ServerName www.panache.com
+    ServerAlias www.panache.com
+    DocumentRoot "c:/xampp/htdocs/srv1latest"
+</VirtualHost>
+
+
+<VirtualHost *:80>
+    ServerName www.tbj.com
+    ServerAlias www.tbj.com
+    DocumentRoot "c:/xampp/htdocs/tbj"
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName www.tk.com
+    ServerAlias www.tk.com
+    DocumentRoot "c:/xampp/htdocs/tk"
+</VirtualHost>
+
+Then restart your server and you done . For more info
+http://complete-concrete-concise.com/web-tools/how-to-change-localhost-to-a-domain-name
+
+
 
  
