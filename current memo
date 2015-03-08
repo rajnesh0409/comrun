@@ -32,7 +32,7 @@ JQUERY/PHP/CSS
  map - jq/php
  get() - jq
  data bind - jq
- 
+ find- find in hirarchy , filter,not opposite of filter
  }
  
  Extra -
