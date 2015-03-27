@@ -100,6 +100,7 @@ JQUERY/PHP/CSS
  - money_format()
  - number_format()
  - filter_var() - use filter constant to validate url/integer/mail/special chars etc.
+ - Index create in php/sql - An index can be created in a table to find data more quickly and efficiently.
  
  map - jq/php
  get() - jq
