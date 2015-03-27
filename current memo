@@ -3,15 +3,48 @@ http://api.jquery.com/promise/
 http://www.w3schools.com/jquery/event_on.asp
 
 new - 
-> off()	Removes event handlers attached with the on() method
-> on()	Attaches event handlers to elements
-> one()	Adds one or more event handlers to selected elements. This handler can only be triggered once per element
->insertAfter() , after
+>>>  off()	Removes event handlers attached with the on() method
+>>>  on()	Attaches event handlers to elements
+>>>  one()	Adds one or more event handlers to selected elements. This handler can only be triggered once per element
+>>>  insertAfter() , after, select()- event handler on selection of text
 $("<p>This is a new paragraph.</p>").insertAfter("button");
 
->$(selector).proxy(context,name)
+>>> Pass along data to the function
+function handlerName(event) {
+    alert(event.data.msg);
+}
+
+$(document).ready(function(){
+    $("p").on("click", {msg: "You just clicked me!"}, handlerName)
+});
+
+>>>  $(selector).proxy(context,name)
 context	- The name of the object where the function lies
 name - The existing function whose context will be changed (should be a property of the context object).
+
+>>>  The trigger()
+method triggers the specified event and the default behavior of an event (like form submission) for the selected elements.
+
+>>> create and trig custom event (can also pass parameters) -
+$(document).ready(function(){
+    $("p").on("myOwnEvent", function(event, showName, me){
+        $(this).text(showName + me +"! What a beautiful name!").show();
+    });
+    $("button").click(function(){
+        $("p").trigger("myOwnEvent", ["Anjna", "sdfdfsd"]);
+    });
+});
+
+Excellent eg-
+var controller = {
+  listen: function (event, json, string) {}
+};
+
+$('body').trigger('this_works', [{data: [1, 2, 3]}, 'something']);
+
+$('body').on('this_works', function (event, json, string) {
+  controller.listen(event, json, string);
+});
 
 > Attach multiple evevnts/ on menthod -
  $("p").on("mouseover mouseout", function(){
