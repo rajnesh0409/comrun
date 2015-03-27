@@ -1,6 +1,36 @@
 new jquery check 
 http://api.jquery.com/promise/
 http://www.w3schools.com/jquery/event_on.asp
+
+new - 
+> off()	Removes event handlers attached with the on() method
+> on()	Attaches event handlers to elements
+> one()	Adds one or more event handlers to selected elements. This handler can only be triggered once per element
+>insertAfter() , after
+$("<p>This is a new paragraph.</p>").insertAfter("button");
+
+>$(selector).proxy(context,name)
+context	- The name of the object where the function lies
+name - The existing function whose context will be changed (should be a property of the context object).
+
+> Attach multiple evevnts/ on menthod -
+ $("p").on("mouseover mouseout", function(){
+        $(this).toggleClass("intro");
+    });
+> Attach multiple evevnts handelrs - 
+ $("p").on({
+        mouseover: function(){
+            $("body").css("background-color", "lightgray");
+        },  
+        mouseout: function(){
+            $("body").css("background-color", "lightblue");
+        }, 
+        click: function(){
+            $("body").css("background-color", "yellow");
+        }  
+    });   
+
+
  
 Latest working
  
