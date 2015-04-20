@@ -6,6 +6,7 @@ http://api.jquery.com/promise/
 http://www.w3schools.com/jquery/event_on.asp
 
 new - 
+>>> stop( true, true ) - to stop transitions speed.
 >>>  off()	Removes event handlers attached with the on() method
 >>>  on()	Attaches event handlers to elements
 >>>  one()	Adds one or more event handlers to selected elements. This handler can only be triggered once per element
