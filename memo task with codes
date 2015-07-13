@@ -8,3 +8,70 @@ $(document).ready(function() {
 6	    });
 7	 
 8	});
+
+
+--- easy autocomplete ---- 
+
+change keyup event to click
+
+and from ajax call --
+
+pass output seperated by commas by ajax, make an array and pass to object & then trig the click event --------
+eg - 
+<script>
+	$(document).ready(function(){
+	$(document).on("keyup", '#searchkey', function(){
+	$key = $(this).val();
+    $.ajax({
+		   type: "POST",
+		   url: BaseURL+"Calls/autosearch",
+		   data: { key: $key},
+		   success: function(res)
+		   {
+				   $("#mylist").html(res);
+				   res = res.split(",");
+				    var outputarray=new Array();
+				    for (i = 0; i < res.length; i++) {
+					$a = res[i].trim();
+                    outputarray.push($a); }
+					var options = { data: outputarray };
+					$("#searchkey").easyAutocomplete(options);
+					$("#searchkey").focus();
+					$("#searchkey").trigger("click");
+        } 
+		   
+		  });
+	});
+});
+</script>	
+
+HTML
+<input id="searchkey"/>
+
+PHP
+function autosearch()
+    {
+		$skey = $this->request->data['key'];
+		$srch_res = $this->Jewel->find('all',array(
+		      'conditions' => array('Jewel.store_id'=>store_id,'Jewel.keyword LIKE' => '%'.$skey.'%'),
+		      'fields' => array('Jewel.keyword'),'recursive'=> -1 ) );
+		
+		$hints = Hash::extract($srch_res, '{n}.Jewel.keyword');
+		$hints = array_unique($hints);
+		$option = '';
+        foreach($hints as $key=>$value)
+		{
+		    if(empty($option))
+		   {
+		       $option = $value;
+		   }
+		   else
+		   {
+		       $option = $option.','.$value;
+		   }
+		}
+		echo $option;
+		die();
+    }
+    
+    
