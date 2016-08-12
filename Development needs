@@ -1,4 +1,11 @@
 
+Common issues-
+
+Port 80 problem-
+net stop was /y
+or XP:
+net stop iisadmin /y
+
 
 -- Jbox notices
 -- popups
