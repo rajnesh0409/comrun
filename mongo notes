@@ -1,0 +1,172 @@
+
+
+The MongoDB 3.2
+
+	      MongoDB	MySQL	Oracle	Informix	DB2
+Database Server	mongod	mysqld	oracle	IDS	DB2 Server
+Database Client	mongo	mysql	sqlplus	DB-Access	DB2 Client
+
+/* start mongodb server */ 
+//(set env variables path mongodb/bin)
+
+//To start mongod server with configuration file (For large dbs)
+mongod --config "E:/mongod/mongod.conf"
+
+//with config file
+mongod --dbpath "E:/data"
+
+/* start mongo client */
+mongo
+
+MongoDB CRUD Operations (Shell Commands)
+
+/* 
+Default database - Test
+use mydb - create and shift to your current database
+collection are like table - (RDBMS)
+Document- Row/Tuple -(RDBMS)
+*/
+
+/* Create database */
+use mydb
+
+/* Drop database */
+db.dropDatabase()
+
+/* show dbs */
+show dbs
+
+/* Create collection */
+db.createCollection("mycol", { capped : true, autoIndexID : true, size : 6142800, max : 10000 } )
+
+/* Drop collection */
+db.mycollection.drop()
+
+/* Show collection */
+show collections
+
+/* Insert document */
+db.mycol.insert({
+   _id: ObjectId(7df78ad8902c),
+   title: 'MongoDB Overview', 
+   description: 'MongoDB is no sql database',
+   by: 'tutorials point',
+   url: 'http://www.tutorialspoint.com',
+   tags: ['mongodb', 'database', 'NoSQL'],
+   likes: 100
+})
+
+db.post.insert([
+   {
+      title: 'MongoDB Overview', 
+      description: 'MongoDB is no sql database',
+      by: 'tutorials point',
+      url: 'http://www.tutorialspoint.com',
+      tags: ['mongodb', 'database', 'NoSQL'],
+      likes: 100
+   },
+
+   {
+      title: 'NoSQL Database', 
+      description: "NoSQL database doesn't have tables",
+      by: 'tutorials point',
+      url: 'http://www.tutorialspoint.com',
+      tags: ['mongodb', 'database', 'NoSQL'],
+      likes: 20, 
+      comments: [ 
+         {
+            user:'user1',
+            message: 'My first comment',
+            dateCreated: new Date(2013,11,10,2,35),
+            like: 0 
+         }
+      ]
+   }
+])
+
+/* Remove document */
+db.mycol.remove({'title':'MongoDB Overview'},1)
+
+
+/* Update document */
+db.movie.update({'name':'tutorails'},{$set:{'name':'New MongoDB Tutorial'}},{multi:true})
+
+db.mycol.save(
+   {
+      "_id" : ObjectId(5983548781331adf45ec7), "title":"Tutorials Point Overview",
+         "by":"Tutorials Point"
+   }
+)
+
+/* Query collection documents */
+db.getCollection('movie').find({})
+
+// AND and OR (!= / == / >= / <=)
+db.mycol.find({"likes": {$gt:10}, $or: [{"by": "tutorials point"},{"title": "MongoDB Overview"}]}).pretty()
+
+
+/* Projection (limiting fields/columns) */  
+db.mycol.find({},{"title":1,_id:0})
+
+/* Limiting records */
+db.mycol.find({},{"title":1,_id:0}).limit(1).skip(1)
+
+
+/* Sorting records */
+db.mycol.find({},{"title":1,_id:0}).sort({"title":-1})
+
+
+/* Aggragation (Kind of Group By - RDBMS)*/
+
+// Aggregation Pipeline
+db.movie.aggregate([{$group : {_id : "$name", total_rollno : {$sum : "$rollno"}}}])
+
+// max,min,first,last,avg - $match,$group,$skip,$sort,$limit
+db.movie.aggregate([{$match: { status: "A"}}, {$group : {_id : "$name", total_rollno : {$sum : "$rollno"}}}])
+db.movie.aggregate([{$match: { status: "A"}}, {$group : {_id : "$name", total_rollno : {$max : "$rollno"}}}])
+db.movie.aggregate([{$match: { status: "A"}},{$group : {_id : "$name", total_rollno : {$last : "$rollno"}}},{$sort: { "_id":1}}])
+
+//Map reduce ( To create complex javascript function )
+db.movie.mapReduce( 
+   function() { emit(this.name,this.rollno); }, 
+   function(key, values) {return Array.sum(values)}, {  
+      query:{status:"A"},  
+      out:"post_total" 
+   }
+).find({})
+
+//Single Purpose Aggregation Operations
+db.getCollection('movie').distinct("rollno")
+db.getCollection('movie').find({status:"A"}).count()
+
+/* Replication (Distributed storage - Hadoop kind..) */
+
+- Replication is the process of synchronizing data across multiple servers. 
+
+- To keep your data safe
+- High (24*7) availability of data
+- Disaster Recovery
+- No downtime for maintenance (like backups, index rebuilds, compaction)
+- Read scaling (extra copies to read from)
+- Replica set is transparent to the application
+
+mongod --port "PORT" --dbpath "YOUR_DB_DATA_PATH" --replSet "REPLICA_SET_INSTANCE_NAME"
+
+mongod --dbpath "E:\data" --replSet rs0
+It will start a mongodb new instance with name rs0.
+Now use rs.initiate() to initiate a new replica set in mongo client.
+
+mongo.exe or mongo
+rs.initiate()
+
+Use rs.conf() to check the replica set configuration.
+
+rs.conf() 
+
+Now create same new instance with another name(rs1) in another machine.
+
+rs.add("mongodb1.example.net")
+rs.add("mongodb2.example.net")
+
+
+
