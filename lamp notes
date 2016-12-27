@@ -1,1 +1,51 @@
 
+Install Mysql -
+
+sudo apt-get update 
+sudo apt-get install mysql-server 
+sudo mysql_secure_installation 
+
+sudo mysql_secure_installation - (123)
+this command is for mysql security validations like password strength, remove access, etc.
+
+Issuse -
+http://askubuntu.com/questions/762784/cant-get-mysql-phpmyadmin-to-work-after-updating-to-16-04
+sudo dpkg-reconfigure phpmyadmin
+
+username - rajnesh@localhost
+password - Admin@123
+
+username - root
+password - 123
+
+To check password policy - The Password Validation Plugin
+
+https://dev.mysql.com/doc/refman/5.6/en/validate-password-options-variables.html
+SHOW VARIABLES LIKE 'validate_password%';
+
+To create new mysql user -
+https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql
+
+Install Apache
+sudo apt-get install apache2
+
+Enable mod_rewrite (To get .htaccess work)
+sudo a2enmod rewrite
+https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_rewrite
+Update priviledge in apache configuration file to all -
+<Directory /var/www/>
+	Options Indexes FollowSymLinks
+	AllowOverride All
+	Require all granted
+</Directory>
+
+Install PHP
+sudo apt-get install php libapache2-mod-php php-mcrypt php-mysql
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04
+
+Normal operations (start/restart/stop/status)
+sudo /etc/init.d/apache2 restart
+sudo /etc/init.d/mysql restart
+or
+sudo service mysql status 
+sudo systemctl restart apache2
