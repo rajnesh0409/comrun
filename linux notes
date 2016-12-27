@@ -1,1 +1,59 @@
 
+- synaptic for software installation.
+- software center by default.
+
+All these ui use apt-get/apt command to install softwares.
+
+Software installation command from terminal -   Ubuntu's Advanced Packaging Tool (APT) 
+
+sudo apt-get install nmap
+sudo apt-get remove nmap
+sudo apt-get update
+sudo apt-get upgrade
+
+check apt files -
+
+computer/var/cache/apt/archives
+
+“Account Type”: “Standard” or “Administrator”
+
+If $ at the end of the prompt that means standard user .
+
+If # that means root user
+
+By default root account is hidden.
+
+
+Users
+
+Create by ssh
+https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart
+Command-line
+To add a user you must use the sudo command (for an explanation of what that means, see the RootSudo page). Here are the commands:
+To add a user. NOTE: do not use the useradd command.
+$ sudo adduser <username>
+To see the options for adding a user try the man command.
+$ man adduser
+Here is a useful example of the useradd command. Why use useradd? It gives a few more options for special cases. To add a user, give her a standard home directory in the /home folder and specify the shell she accesses by default do this:
+$ sudo useradd username -m -s /bin/bash 
+$ sudo passwd username 
+Groups
+You might also wish to create a new group for your users.
+# sudo addgroup <groupname>
+To add a new user to a existing group you would do this:
+# sudo adduser <username> audio
+To add an existing user to an existing group you can use the same command:
+# sudo adduser <username> <groupname>
+or
+# sudo usermod -aG <groupname> <username>
+
+Change permissions
+sudo chmod -R o+rw /var/www
+sudo chmod -R 777 /var/www
+
+Install package from terminal -
+sudo dpkg -i FileName.deb
+
+By GUI -
+By gdebi package installer.
+By default installer.
