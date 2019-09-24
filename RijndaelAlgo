@@ -1,0 +1,37 @@
+const RijndaelAlgo = require("rijndael-js");
+const padder = require('pkcs7');
+
+const TokenGeneration = function(CognitoUserId, isMigrated, argsUsername, callback) {
+    try {
+        AuthToken.UserId = CognitoUserId;
+        AuthToken.isMigrated = isMigrated;
+		AuthToken.UserName = argsUsername;
+        let tokendata = JSON.stringify(AuthToken);
+        let keybuffer = Buffer.from(RIJNDAEL.KEY, 'base64');
+        let ivBuffer = Buffer.from(RIJNDAEL.IV, 'base64');
+        let cipher = new RijndaelAlgo(keybuffer, 'cbc');
+        let TokenBuffer = Buffer.from(tokendata, 'utf8');
+        let padded = padder.pad(TokenBuffer, 128);
+        let encrypted = cipher.encrypt(padded, 128, ivBuffer);
+        let ciphetText = encrypted.toString("base64");
+        callback(null, ciphetText);
+    } catch (err) {
+        callback(err);
+    }
+}
+
+const TokenDecryption = function(encryptedText, callback) {
+    try {
+        let keyBuffer = Buffer.from(RIJNDAEL.KEY, 'base64');
+        let ivBuffer = Buffer.from(RIJNDAEL.IV, 'base64');
+        let tokenDataBuffer = Buffer.from(encryptedText, 'base64');
+        let decipher = new Rijndael(keyBuffer, 'cbc');
+        let decryptedPadded = decipher.decrypt(tokenDataBuffer, 128, ivBuffer);
+        let decrypted = padder.unpad(decryptedPadded, 128);
+        let clearText = decrypted.toString('utf8');
+        callback(null, JSON.parse(clearText));
+    } catch (err) {
+        callback(err);
+    }
+
+}
